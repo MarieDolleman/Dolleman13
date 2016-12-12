@@ -5,8 +5,6 @@ using System.Collections;
 public class GameController : MonoBehaviour
 {
 	public GameObject hazard;
-	public GameObject leftHazard;
-	public GameObject rightHazard;
 
 	public Vector3 spawnValues;
 	public int hazardCount;
@@ -52,13 +50,9 @@ public class GameController : MonoBehaviour
 			for (int i = 0; i < hazardCount; i++)
 			{
 				Vector3 spawnPosition = new Vector3 (Random.Range (-6, 6), 0, 16);
-				Vector3 leftSpawnPosition = new Vector3 (Random.Range (-6, 6), 0, 8);
-				Vector3 rightSpawnPosition = new Vector3 (Random.Range (-6, 6), 0, 5);
 
 				Quaternion spawnRotation = Quaternion.identity;
 				Instantiate (hazard, spawnPosition, spawnRotation);
-				Instantiate (leftHazard, leftSpawnPosition, spawnRotation);
-				Instantiate (rightHazard, rightSpawnPosition, spawnRotation);
 
 				yield return new WaitForSeconds (spawnWait);
 			}
